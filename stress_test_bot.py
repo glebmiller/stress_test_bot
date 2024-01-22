@@ -70,7 +70,7 @@ async def cancel_handler(message: types.Message, state: FSMContext):
 @dp.message_handler(lambda message: message.text and "Начать заново" in message.text)
 @dp.message_handler(commands=["start"])
 async def start(message: types.Message):
-    greeting = """Здравствуйте, меня зовут Лара Марченко, я автор канала по <a href="https://t.me/laramarchenko">Career Upgrade</a>, где можно узнать про то, как найти себя, работу и себя на работе, а еще много интересного про карьеру, спорт и котиков…
+    greeting = """Здравствуйте, меня зовут Лара Марченко, я автор канала <a href="https://t.me/laramarchenko">Career Upgrade</a>, где можно узнать про то, как найти себя, работу и себя на работе, а еще много интересного про карьеру, спорт и котиков…
 
 Хорошо, когда ваши жизнь и карьера (работа, дело) уравновешены, стресс, если и есть, то здоровый и адаптивный, нет выгорания!
 
@@ -160,6 +160,7 @@ async def process_text(message: types.Message, state: FSMContext):
                     chat_id=message.chat.id,
                     text=QUESTIONS[question_number],
                     reply_markup=markup,
+                    parse_mode=types.ParseMode.HTML,
                 )
             except:
                 # else:
