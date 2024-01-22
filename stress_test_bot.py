@@ -92,7 +92,7 @@ async def start(message: types.Message):
     markup.add(button1)
     # markup.add(button2)
     # print(user_scores)
-    await bot.send_message(chat_id=message.chat.id, text=greeting, reply_markup=markup)
+    await bot.send_message(chat_id=message.chat.id, text=greeting, reply_markup=markup, parse_mode=types.ParseMode.HTML)
 
 
 @dp.callback_query_handler()
