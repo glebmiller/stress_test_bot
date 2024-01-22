@@ -8,6 +8,7 @@ import aiogram.utils.exceptions as aiogram_exceptions
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 import logging
 import time
+import config
 
 
 storage = MemoryStorage()
@@ -16,7 +17,7 @@ storage = MemoryStorage()
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot and dispatcher
-bot = Bot(token="6201369528:AAHmBXf4g0o-WDmw0S3bJiuhu8AfFu_04XE")
+bot = Bot(token=config.token)
 dp = Dispatcher(bot, storage=storage)
 
 
@@ -69,7 +70,7 @@ async def cancel_handler(message: types.Message, state: FSMContext):
 @dp.message_handler(lambda message: message.text and "Начать заново" in message.text)
 @dp.message_handler(commands=["start"])
 async def start(message: types.Message):
-    greeting = """Здравствуйте, меня зовут Лара Марченко, я автор канала по <a href="https://t.me/laramarchenko">Career Upgrade</a>', где можно узнать про то, как найти себя, работу и себя на работе, а еще много интересного про карьеру, спорт и котиков…
+    greeting = """Здравствуйте, меня зовут Лара Марченко, я автор канала по <a href="https://t.me/laramarchenko">Career Upgrade</a>, где можно узнать про то, как найти себя, работу и себя на работе, а еще много интересного про карьеру, спорт и котиков…
 
 Хорошо, когда ваши жизнь и карьера (работа, дело) уравновешены, стресс, если и есть, то здоровый и адаптивный, нет выгорания!
 
